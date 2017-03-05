@@ -20,7 +20,19 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-  res.status(200).send('Hello, world!');
+  const message = `
+    <h1>Hello, world!</h1>
+    <table>
+    <tr>
+      <td>Node version:</td>
+      <td>${process.version}</td>
+    </tr>
+    <tr>
+      <td>V8 version:</td>
+      <td>${process.versions.v8}</td>
+    </tr>
+    </table>`;
+  res.status(200).send(message);
 });
 
 // Start the server
